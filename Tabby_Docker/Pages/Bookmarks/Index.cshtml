@@ -1,0 +1,60 @@
+﻿@page
+@model Tabby_Docker.Pages.Bookmarks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookmark[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookmark[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookmark[0].URL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookmark[0].SiteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookmark[0].DateAdded)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Bookmark) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.URL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@page
+@model Tabby_Docker.Pages.SettingsModel
+@{
+    ViewData["Title"] = "Settings";
+
+}
+
+<h1 style="text-align:center">@ViewData["Title"]</h1>
+<div class="card-group">
+    <div class="card">
+        <div class="card-body">
+            <b class="card-title">UI/Themes</b>
+            <div class="card-text">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownmenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" disabled>
+                    Theme
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                    <a class="dropdown-item" href="#">Dark</a>
+                    <a class="dropdown-item" href="#">Light</a>
+                    <a class="dropdown-item" href="#">Default</a>
+                </div>
+            </div>
+            <div class="card-footer">
+                Themes are under construction currently.
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                Special Thanks!
+            </div>
+            <div class="card-text">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Rick Anderson</li>
+                    <li class="list-group-item">Christopher Laine</li>
+                    <li class="list-group-item">The Team behind Open Graph Protocol</li>
+                    <li class="list-group-item">The Team behind HtmlAgilityPack</li>
+                    <li class="list-group-item">The Team behind Feather Icons</li>
+                    <li class="list-group-item">The Team behind Bootstrap</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

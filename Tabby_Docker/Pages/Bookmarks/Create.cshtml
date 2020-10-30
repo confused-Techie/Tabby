@@ -1,0 +1,54 @@
+﻿@page
+@model Tabby_Docker.Pages.Bookmarks.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Bookmark</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bookmark.Title" class="control-label"></label>
+                <input asp-for="Bookmark.Title" class="form-control" />
+                <span asp-validation-for="Bookmark.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bookmark.Description" class="control-label"></label>
+                <input asp-for="Bookmark.Description" class="form-control" />
+                <span asp-validation-for="Bookmark.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bookmark.URL" class="control-label"></label>
+                <input asp-for="Bookmark.URL" class="form-control" />
+                <span asp-validation-for="Bookmark.URL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bookmark.SiteName" class="control-label"></label>
+                <input asp-for="Bookmark.SiteName" class="form-control" />
+                <span asp-validation-for="Bookmark.SiteName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bookmark.DateAdded" class="control-label"></label>
+                <input asp-for="Bookmark.DateAdded" class="form-control" />
+                <span asp-validation-for="Bookmark.DateAdded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
