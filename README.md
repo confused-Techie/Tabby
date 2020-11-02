@@ -36,6 +36,6 @@ docker-compose up
 While in the same folder, and connect using the proper ports specified in the compose file.<br />
 Afterwards you can install the browser extension to start saving pages.<br /><br />
 <strong>Extensions</strong><br />
-Currently the only supported extension is for Chromium Based Browsers, which you can learn more about <a href="https://github.com/confused-Techie/TabbyChromeExtension"here.</a>
+Currently the only supported extension is for Chromium Based Browsers, which you can learn more about <a href="https://github.com/confused-Techie/TabbyChromeExtension">here.</a>
 <br />
 As of now the extension is the version submitted to the Chrome Web Store. But will work on Opera, Edge, Brave without any changes. But a modified manifest file is being submitted to each of those services only to display the proper meta data. And an extension for Firefox is currently in the works.
