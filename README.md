@@ -1,12 +1,53 @@
-# Tabby
-Tabby is the Self Hosted Solution for your Bookmarks, allowing you to save a page easily in the browser, and view it later, grouped with anything else you've saved. 
-Seeing not only the link of the website, but using the Open Graph protocl and Twitter Cards to make your Bookmarks make sense at a glance. 
-Being able to see Descriptions, website names, and the time you saved the bookmark quickly.<br /><br />
-While usable this project is definetly far from done, and I hope to continually make improvements, and feel free to request new features.<br /><br />
+# Tabby   <img src="https://github.com/confused-Techie/Tabby/blob/master/Tabby_Docker/wwwroot/Images/tabbyIcon.svg" alt="Tabby Icon Logo" width=5% />
+<br/>
+<p align=center>
+<a href="https://github.com/confused-Techie/Tabby/blob/master/LICENSE">
+   <img alt="Tabby GPL 3.0 License" src="https://img.shields.io/badge/license-GPL--3.0-orange">
+</a>
+<a href="https://github.com/confused-Techie/Tabby/releases/tag/v1.0">
+   <img alt="Tabby Release Version" src="https://img.shields.io/badge/release-v1.0-blueviolet">
+</a>
+<a href="https://hub.docker.com/r/lhbasics/tabbydocker">
+   <img alt="Tabby Docker Pulls" src="https://img.shields.io/docker/pulls/lhbasics/tabbydocker.svg">
+</a>
+<br/>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/tabby-extension/">
+   <img alt="Tabby Extension for Firefox" src="https://img.shields.io/badge/Extension-Firefox-orange">
+</a>
+</p>
+Tabby is the Self-Hosted Free Bookmark Manager. A stark contrast to keeping a list of Bookmarks as just URL's and Titles, Tabby lets you provide just a URL via one of the Browser Extensions which Tabby then adds the Title according to the website, a description, and Site Name if the website supports it.
+
+Tabby is completly local, the only web requests ever made are once to the website you add when you add it. The extensions themselves are also completely local, only contacting your server once you choose to save a Bookmark.
 <img src="https://github.com/confused-Techie/Tabby/blob/master/gitImages/HomePage.PNG" alt="Tabby Home Page" />
-<strong>Installation</strong><br />
-Installing is easy using Docker and Docker Compose.<br />
-Simply create your `docker-compose.yml` and enter the following.<br />
+
+Tabby is still in development and if you encounter any issues feel free to open an issue here on Github, or if you have any feature requests feel free to submit those as well.
+
+# Extensions
+<strong>Github</strong><br />
+<a href="https://github.com/confused-Techie/TabbyChromeExtension">Github Chromium Based Extension</a>
+
+<a href="https://github.com/confused-Techie/TabbyFirefoxExtension">Github Firefox Extension</a>
+
+<strong>Published Versions</strong><br />
+Chrome Web Store: In Progress
+
+Firefox Add-ons: <a href="https://addons.mozilla.org/en-US/firefox/addon/tabby-extension/">Version 1.0 Here!</a>
+
+Opera addons: In Progress
+
+Edge Add-ons Beta: In Progress
+
+# Installation
+
+<strong>Windows:</strong><br />
+Make sure to first install <a href="https://docs.docker.com/docker-for-windows/install/">Docker Desktop.</a>
+
+Once installed make sure it's using Linux Containers.
+
+Then in any directory create a new file titled `docker-compose.yml`
+
+Open the file and type in the following.
+
 ```bash
 version: '3'
 services:
@@ -29,13 +70,48 @@ services:
          DBPort: "1433"
          Database: "Bookmarks"
 ```  
-Afterwards save the file and use<br />
+Lastly open this file in PowerShell. And type the following...
 ```bash
 docker-compose up
 ```
-While in the same folder, and connect using the proper ports specified in the compose file.<br />
-Afterwards you can install the browser extension to start saving pages.<br /><br />
-<strong>Extensions</strong><br />
-Currently the only supported extension is for Chromium Based Browsers, which you can learn more about <a href="https://github.com/confused-Techie/TabbyChromeExtension">here.</a>
-<br />
-As of now the extension is the version submitted to the Chrome Web Store. But will work on Opera, Edge, Brave without any changes. But a modified manifest file is being submitted to each of those services only to display the proper meta data. And an extension for Firefox is currently in the works.
+Now the Server is running and you can connect in your web browser with `http://localhost:8080` Or whatever port specified under `web` in `docker-compose.yml`.
+
+<strong>Linux</strong><br />
+Make sure to install <a href="https://docs.docker.com/engine/install/">Docker</a> and <a href="https://docs.docker.com/compose/install/">Docker Compose</a> based on your distribution.
+
+Then just like the Windows Installation create a file `docker-compose.yml`, and open the file.
+```bash
+touch docker-compose.yml
+nano docker-compose.yml
+```
+Then inside the `docker-compose.yml` type the following.
+
+```bash
+version: '3'
+services:
+   ms-sql-server:
+      image: mcr.microsoft.com/mssql/server
+      environment:
+         ACCEPT_EULA: "Y"
+         SA_PASSWORD: "Pa55w0rd2020"        # Make sure this matches the password specified below
+         MSSQL_PID: Express
+      ports:
+         - "1433:1433"
+   web:
+      image: "lhbasics/tabbydocker:latest"
+      ports:
+         - "8080:80"
+      environment:                        # The only values required are the DBServer, and the DBPassword
+         DBServer: "ms-sql-server"        # All other values will default to whats listed here, 
+         DBUser: "SA"                     # so unless changing other values these can be left alone.
+         DBPassword: "Pa55w0rd2020"
+         DBPort: "1433"
+         Database: "Bookmarks"
+```  
+
+Save the file and type...
+```bash
+docker-compose up
+```
+
+And Tabby is now running, connect to it with the port specified in the web definition via your prefered browser.
