@@ -24,14 +24,18 @@ Tabby is still in development and if you encounter any issues feel free to open 
 
 # Extensions
 <strong>Github</strong><br />
+
 <a href="https://github.com/confused-Techie/TabbyChromeExtension">Github Chromium Based Extension</a>
 
 <a href="https://github.com/confused-Techie/TabbyFirefoxExtension">Github Firefox Extension</a>
 
 <strong>Published Versions</strong><br />
+
 Chrome Web Store: In Progress
 
-Firefox Add-ons: <a href="https://addons.mozilla.org/en-US/firefox/addon/tabby-extension/">Version 1.0 Here!</a>
+Firefox Add-ons: Version 1.0 Here!
+
+<a href="https://addons.mozilla.org/en-US/firefox/addon/tabby-extension/"><img src="https://github.com/confused-Techie/Tabby/blob/master/gitImages/firefox-addon.png" alt="Get Firefox Add-On Button" />
 
 Opera addons: In Progress
 
