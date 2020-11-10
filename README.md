@@ -35,7 +35,7 @@ Chrome Web Store: In Progress
 
 Firefox Add-ons: Version 1.0 Here!
 
-<a href="https://addons.mozilla.org/en-US/firefox/addon/tabby-extension/"><img src="https://github.com/confused-Techie/Tabby/blob/master/gitImages/firefox-addon.png" alt="Get Firefox Add-On Button" />
+<a href="https://addons.mozilla.org/en-US/firefox/addon/tabby-extension/"><img src="https://github.com/confused-Techie/Tabby/blob/master/gitImages/firefox-addon.png" alt="Get Firefox Add-On Button" /></a>
 
 Opera addons: In Progress
 
