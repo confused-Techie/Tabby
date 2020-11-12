@@ -41,7 +41,9 @@ Firefox Add-ons: Version 1.0 Here!
 
 Opera addons: In Progress
 
-Edge Add-ons Beta: In Progress
+Edge Add-ons Beta: Version 1.0 Here!
+
+<a href="https://microsoftedge.microsoft.com/addons/detail/tabby-edge-extension/obbjajbinlombefaffnlmmkapbendfmn"><img src="https://github.com/confused-Techie/Tabby/blob/master/gitImages/microsoftStore-addon.png" alt="Get from Microsoft Edge Add-On Beta Button" width=20% /></a>
 
 # Installation
 
