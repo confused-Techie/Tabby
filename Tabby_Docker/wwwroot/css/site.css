@@ -110,3 +110,18 @@ h1 {
     color: white;
     background-color: #363636;
 }
+
+.grid-container {
+    display: inline-grid;
+    /*grid-column-gap: 50rem;
+    grid-row-gap: 50rem;*/
+   
+}
+
+.grid-container .grid-item {
+    margin-bottom: 0.75rem;
+    margin-left: 0.75rem;
+    display: inline-block;
+    width: 20rem;
+
+}
