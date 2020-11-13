@@ -14,6 +14,12 @@
 <a href="https://addons.mozilla.org/en-US/firefox/addon/tabby-extension/">
    <img alt="Tabby Extension for Firefox" src="https://img.shields.io/badge/Extension-Firefox-orange">
 </a>
+<a href="https://chrome.google.com/webstore/detail/tabby-chrome-extension/ifjdlkpicmjmojpfnnegehnkblbjhnad?hl=en">
+   <img alt="Tabby Extension for Google Chrome" src="https://img.shields.io/badge/Extension-Chrome-red">
+</a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/tabby-edge-extension/obbjajbinlombefaffnlmmkapbendfmn">
+   <img alt="Tabby Extension for Microsoft Edge" src="https://img.shields.io/badge/Extension-Edge-blue">
+</a>
 </p>
 Tabby is the Self-Hosted Free Bookmark Manager. A stark contrast to keeping a list of Bookmarks as just URL's and Titles, Tabby lets you provide just a URL via one of the Browser Extensions which Tabby then adds the Title according to the website, a description, and Site Name if the website supports it.
 
@@ -39,7 +45,7 @@ Firefox Add-ons: Version 1.0 Here!
 
 <a href="https://addons.mozilla.org/en-US/firefox/addon/tabby-extension/"><img src="https://github.com/confused-Techie/Tabby/blob/master/gitImages/firefox-addon.png" alt="Get Firefox Add-On Button" /></a>
 
-Opera addons: In Progress
+Opera addons: In Progress (Waiting for Moderation from Opera Extension Team)
 
 Edge Add-ons Beta: Version 1.0 Here!
 
