@@ -18,12 +18,12 @@
 
                     <div class="card-body">
                         <div class="card-title">
-                            <b>
-                                @Html.DisplayFor(modelItem => item.Title)
-                            </b>
                             <a href="@Html.DisplayFor(modelItem => item.URL)">
                                 <img src="~/Images/external-link.svg" alt="Open Link" style="float:right;width:20px;height:20px;" />
                             </a>
+                            <b>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </b>
                         </div>
                         <p class="card-text"> @Html.DisplayFor(modelItem => item.Description) </p>
                         <div class="card-link"><a href="@Html.DisplayFor(modelItem => item.URL)">Source: @Html.DisplayFor(modelItem => item.SiteName) </a></div>
