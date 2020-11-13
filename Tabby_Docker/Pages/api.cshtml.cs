@@ -155,8 +155,8 @@ namespace Tabby_Docker.Pages
                         _DockerContext.Bookmark.AddRange(
                             new Bookmark
                             {
-                                Title = HtmlEntityChart(rawTitle),
-                                Description = HtmlEntityChart(rawDescription),
+                                Title = HtmlEntityChart(HtmlLeftovers(rawTitle)),
+                                Description = HtmlEntityChart(HtmlLeftovers(rawDescription)),
                                 URL = rawUrl,
                                 SiteName = rawSiteName,
                                 DateAdded = DateTime.Now
@@ -206,6 +206,21 @@ namespace Tabby_Docker.Pages
             ampString = gtString.Replace("&amp;", "&").Replace("&AMP;", "&").Replace("&#x00026;", "&").Replace("&#x26;", "&").Replace("&#38;", "&");
 
             finalString = ampString;
+            return finalString;
+        }
+
+        private static string HtmlLeftovers(string origString)
+        {
+            String finalString = "";
+            String boldString = "";
+            String pString = "";
+            String hString = "";
+
+            boldString = origString.Replace("<b>", "").Replace("</b>", "");
+            pString = boldString.Replace("<p>", "").Replace("</p>", "");
+            hString = pString.Replace("<h1>", "").Replace("/h1>", "").Replace("<h2>", "").Replace("</h2>", "");
+
+            finalString = hString;
             return finalString;
         }
     }
