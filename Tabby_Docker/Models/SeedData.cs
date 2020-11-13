@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
 using Tabby_Docker.Data;
 
 namespace Tabby_Docker.Models
@@ -37,9 +35,9 @@ namespace Tabby_Docker.Models
                         URL = "https://www.github.com",
                         SiteName = "Github",
                         DateAdded = DateTime.Now
-                    }) ;
+                    });
                 context.SaveChanges();
-            } 
+            }
             else
             {
                 System.Console.WriteLine("Already have data - no seeding.");

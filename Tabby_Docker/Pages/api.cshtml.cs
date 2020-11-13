@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using Tabby_Docker.Models;
 
 namespace Tabby_Docker.Pages
@@ -70,11 +67,12 @@ namespace Tabby_Docker.Pages
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/html"));
                 HttpResponseMessage response;
-                
+
                 try
                 {
                     response = await client.GetAsync(uri);
-                } catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     System.Console.WriteLine("There was a problem processing the URI: " + ex);
                     return "There was a problem processing the URI: " + ex;
@@ -101,7 +99,8 @@ namespace Tabby_Docker.Pages
                         rawSiteName = doc.DocumentNode.SelectSingleNode("//meta[@property='og:site_name']")?.GetAttributeValue("Content", null);
                         rawDescription = doc.DocumentNode.SelectSingleNode("//meta[@property='og:description']")?.GetAttributeValue("Content", null);
 
-                    } catch(Exception ex)
+                    }
+                    catch (Exception ex)
                     {
                         System.Console.WriteLine("There was a problem parsing the data: " + ex);
                         return "There was a problem parsing the data: " + ex;
@@ -125,7 +124,7 @@ namespace Tabby_Docker.Pages
 
                     if (String.IsNullOrWhiteSpace(rawUrl))
                     {
-                        
+
                         //if no og:url set to provided URI
                         rawUrl = uri;
                     }
@@ -151,8 +150,8 @@ namespace Tabby_Docker.Pages
                     //and while doing so check applicable values for HTMLCharacterEntities
                     try
                     {
-                        
-                        
+
+
                         _DockerContext.Bookmark.AddRange(
                             new Bookmark
                             {
@@ -167,12 +166,14 @@ namespace Tabby_Docker.Pages
                             _DockerContext.SaveChanges();
                             System.Console.WriteLine("Successfully saving new BookMark");
                             return "Success";
-                        } catch(Exception ex)
+                        }
+                        catch (Exception ex)
                         {
                             System.Console.WriteLine("There was a problem saving the Bookmark to the Database: " + ex);
-                            return "There was a problem saving the Bookmark to the Database: " + ex; 
+                            return "There was a problem saving the Bookmark to the Database: " + ex;
                         }
-                    } catch(Exception ex)
+                    }
+                    catch (Exception ex)
                     {
                         System.Console.WriteLine("Error Writing to Database: " + ex);
                         return "Error Writing to Database: " + ex;

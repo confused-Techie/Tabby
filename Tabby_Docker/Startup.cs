@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Tabby_Docker.Data;
 using Tabby_Docker.Models;
 
@@ -37,8 +32,8 @@ namespace Tabby_Docker
 
             services.AddRazorPages();
 
-           // services.AddDbContext<Tabby_DockerContext>(options =>
-             //       options.UseSqlServer(Configuration.GetConnectionString("Tabby_DockerContext")));
+            // services.AddDbContext<Tabby_DockerContext>(options =>
+            //       options.UseSqlServer(Configuration.GetConnectionString("Tabby_DockerContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
