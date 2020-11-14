@@ -74,8 +74,16 @@ namespace Tabby_Docker.Pages
                 }
                 catch (Exception ex)
                 {
+                    //Even though this would only catch if the Bookmark isn't https:// || http:// 
+                    //it will still be saved with Bookmark First! thinking.
+                    //Generally this will be triggered by something like chrome://settings
                     System.Console.WriteLine("There was a problem processing the URI: " + ex);
-                    return "There was a problem processing the URI: " + ex;
+                    System.Console.WriteLine("Attempting to Save anyway with no data...");
+                    var noMetaReturn = await noMetaResult(uri);
+                    return new JsonResult(noMetaReturn).Value;
+                    //.Value is used to only return the value of the JsonResult which in this case is the return
+                    //statement of noMetaResult
+                    //return "There was a problem processing the URI: " + ex;
                 }
 
                 if (response.IsSuccessStatusCode)
@@ -102,6 +110,8 @@ namespace Tabby_Docker.Pages
                     }
                     catch (Exception ex)
                     {
+                        //Since even if some parsing data doesn't exist HTMLAgilityPack fails gracefully returning
+                        //null values, this will be left in the case of malformed data, possibly indicating a bad request
                         System.Console.WriteLine("There was a problem parsing the data: " + ex);
                         return "There was a problem parsing the data: " + ex;
                     }
@@ -182,8 +192,59 @@ namespace Tabby_Docker.Pages
                 else
                 {
                     System.Console.WriteLine("There was a problem accessing the URI: " + response.StatusCode + "-" + response.ReasonPhrase);
-                    return "There was a problem accessing the URRI: " + response.StatusCode + "-" + response.ReasonPhrase;
+                    //return "There was a problem accessing the URRI: " + response.StatusCode + "-" + response.ReasonPhrase;
+                    System.Console.WriteLine("Attempting to save Bookmark anyway...");
+                    var noAccessReturn = await noMetaResult(uri);
+                    return new JsonResult(noAccessReturn).Value;
                 }
+            }
+        }
+
+        private async Task<Object> noMetaResult(string noMetaURL)
+        {
+            //I can use Uri to easily and quickly get host name
+            Uri baseUri = new Uri(noMetaURL);
+
+            //since this is used for both noStandard URL's and for noScrapingURL's the description will differ depending
+            var noMetaDescription = "";
+            if (baseUri.Scheme == "http" || baseUri.Scheme == "https")
+            {
+                noMetaDescription = "No Description Available.";
+            } else
+            {
+                noMetaDescription = "No Description Available. You may have to copy this link and paste it into the Address Bar because it uses '"+ baseUri.Scheme+ "' instead of 'https://' or 'http://'.";
+            }
+            //try saving this blank data to the DB
+            try
+            {
+                _DockerContext.Bookmark.AddRange(
+                    new Bookmark
+                    {
+                        //The warning to copy/paste is provided since this would normally be called after
+                        //realizing this is a none standard url
+                        Title = baseUri.Host,
+                        Description = noMetaDescription,
+                        URL = noMetaURL,
+                        SiteName = noMetaURL,
+                        DateAdded = DateTime.Now
+                    });
+
+                try
+                {
+                    _DockerContext.SaveChanges();
+                    System.Console.WriteLine("Successfully saving new Bookmark");
+                    return "Success";
+                } 
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine("There was an error saving the bookmark to the Database: " + ex);
+                    return "There was an error saving the bookmark to the Database: " + ex;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("Error Writing to database: " + ex);
+                return "Error Writing to database: " + ex;
             }
         }
 
