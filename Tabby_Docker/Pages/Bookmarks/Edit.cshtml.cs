@@ -62,7 +62,7 @@ namespace Tabby_Docker.Pages.Bookmarks
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Index");
         }
 
         private bool BookmarkExists(int id)

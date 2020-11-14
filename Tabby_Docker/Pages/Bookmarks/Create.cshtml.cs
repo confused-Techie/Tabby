@@ -34,7 +34,7 @@ namespace Tabby_Docker.Pages.Bookmarks
             _context.Bookmark.Add(Bookmark);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Index");
         }
     }
 }
