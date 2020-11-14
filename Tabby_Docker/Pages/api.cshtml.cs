@@ -106,7 +106,7 @@ namespace Tabby_Docker.Pages
                         rawUrl = doc.DocumentNode.SelectSingleNode("//meta[@property='og:url']")?.GetAttributeValue("Content", null);
                         rawSiteName = doc.DocumentNode.SelectSingleNode("//meta[@property='og:site_name']")?.GetAttributeValue("Content", null);
                         rawDescription = doc.DocumentNode.SelectSingleNode("//meta[@property='og:description']")?.GetAttributeValue("Content", null);
-
+                        //System.Console.WriteLine(doc.DocumentNode.SelectSingleNode("//"))
                     }
                     catch (Exception ex)
                     {
@@ -160,7 +160,8 @@ namespace Tabby_Docker.Pages
                     //and while doing so check applicable values for HTMLCharacterEntities
                     try
                     {
-
+                        //while this uses google to find the favicon, if google is down or not accesible, the favicon
+                        //will just not be rendered on the bookmark page
 
                         _DockerContext.Bookmark.AddRange(
                             new Bookmark
@@ -169,7 +170,8 @@ namespace Tabby_Docker.Pages
                                 Description = HtmlEntityChart(HtmlLeftovers(rawDescription)),
                                 URL = rawUrl,
                                 SiteName = rawSiteName,
-                                DateAdded = DateTime.Now
+                                DateAdded = DateTime.Now,
+                                FaviconLoc = "https://www.google.com/s2/favicons?domain="+rawUrl
                             });
                         try
                         {
@@ -212,7 +214,7 @@ namespace Tabby_Docker.Pages
                 noMetaDescription = "No Description Available.";
             } else
             {
-                noMetaDescription = "No Description Available. You may have to copy this link and paste it into the Address Bar because it uses '"+ baseUri.Scheme+ "' instead of 'https://' or 'http://'.";
+                noMetaDescription = "No Description Available. You may have to copy this link and paste it into the Address Bar because it uses '"+ baseUri.Scheme+ "' instead of 'https' or 'http'.";
             }
             //try saving this blank data to the DB
             try
@@ -226,7 +228,9 @@ namespace Tabby_Docker.Pages
                         Description = noMetaDescription,
                         URL = noMetaURL,
                         SiteName = noMetaURL,
-                        DateAdded = DateTime.Now
+                        DateAdded = DateTime.Now,
+                        FaviconLoc = "https://www.google.com/s2/favicons?domain="+noMetaURL
+
                     });
 
                 try
@@ -248,6 +252,7 @@ namespace Tabby_Docker.Pages
             }
         }
 
+        
         private static string HtmlEntityChart(string origString)
         {
             String finalString = "";

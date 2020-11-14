@@ -9,9 +9,12 @@ namespace Tabby_Docker.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string URL { get; set; }
+        [Display(Name = "Website Name")]
         public string SiteName { get; set; }
+        [Display(Name = "Date Added to Tabby")]
         [DataType(DataType.DateTime)]
         public DateTime DateAdded { get; set; }
+        public string FaviconLoc { get; set; }
 
     }
 }

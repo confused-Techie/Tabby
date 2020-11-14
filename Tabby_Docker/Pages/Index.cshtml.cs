@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
+
 namespace Tabby_Docker.Pages
 {
     public class IndexModel : PageModel
@@ -16,5 +17,6 @@ namespace Tabby_Docker.Pages
         {
 
         }
+
     }
 }

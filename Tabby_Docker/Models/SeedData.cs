@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using Tabby_Docker.Data;
+using System.IO;
+
 
 namespace Tabby_Docker.Models
 {
@@ -27,6 +29,7 @@ namespace Tabby_Docker.Models
             if (!context.Bookmark.Any())
             {
                 System.Console.WriteLine("Adding data - seeding...");
+
                 context.Bookmark.AddRange(
                     new Bookmark
                     {
@@ -34,7 +37,8 @@ namespace Tabby_Docker.Models
                         Description = "Here you can delete this BookMark. Then feel free to install the extension for you preffered browser to add new ones!",
                         URL = "https://www.github.com",
                         SiteName = "Github",
-                        DateAdded = DateTime.Now
+                        DateAdded = DateTime.Now,
+                        FaviconLoc = "/favicon.png"
                     });
                 context.SaveChanges();
             }

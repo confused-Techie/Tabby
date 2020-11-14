@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tabby_Docker.Data;
 
 namespace Tabby_Docker.Migrations
 {
     [DbContext(typeof(Tabby_DockerContext))]
-    partial class Tabby_DockerContextModelSnapshot : ModelSnapshot
+    [Migration("20201114194528_AddFaviconString")]
+    partial class AddFaviconString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
