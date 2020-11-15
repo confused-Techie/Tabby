@@ -10,5 +10,6 @@ namespace Tabby_Docker.Data
         }
 
         public DbSet<Tabby_Docker.Models.Bookmark> Bookmark { get; set; }
+        
     }
 }

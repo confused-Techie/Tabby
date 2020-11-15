@@ -1,5 +1,6 @@
 ﻿@page
 @model Tabby_Docker.Pages.Bookmarks.IndexModel
+
 @{
     ViewData["Title"] = "Tabby";
 }
@@ -7,7 +8,8 @@
 <div class="text-center">
     <!--<h1 class="display-4">Message of the Day</h1>-->
     <p><a asp-page="./Bookmarks/Create"><img src="~/Images/plus-circle.svg" style="width:20px;" /></a> What have you saved today?</p> 
-
+    <!--This will be where folders are located-->
+    
 
 
     @foreach (var item in Model.Bookmark.Reverse())

@@ -40,6 +40,11 @@
                 <span asp-validation-for="Bookmark.DateAdded" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Bookmark.FaviconLoc" class="control-label"></label>
+                <input asp-for="Bookmark.FaviconLoc" class="form-control" />
+                <span asp-validation-for="Bookmark.FaviconLoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn" />
             </div>
         </form>
