@@ -29,7 +29,10 @@
                             </b>
                         </div>
                         <p class="card-text"> @Html.DisplayFor(modelItem => item.Description) </p>
-                        <div class="card-link"><a href="@Html.DisplayFor(modelItem => item.URL)">Source: @Html.DisplayFor(modelItem => item.SiteName) </a></div>
+                        <div class="card-link">
+                        <!--<img src="~/Images/hash.svg" style="float:left;width:16px;height:16px;" />-->
+                       
+                        <a href="@Html.DisplayFor(modelItem => item.URL)">Source: @Html.DisplayFor(modelItem => item.SiteName) </a></div>
                         <div class="card-footer text-muted">
                             <a asp-page="./Bookmarks/Edit" asp-route-id="@item.ID"><img src="~/Images/edit-3.svg" alt="Edit Bookmark" style="float:left;width:20px;height:20px;" /></a> <small class="text-muted">@Html.DisplayFor(modelItem => item.DateAdded)</small> <a asp-page="./Bookmarks/Delete" asp-route-id="@item.ID"><img src="~/Images/trash-2.svg" alt="Delete Bookmark" style="float:right;width:20px;height:20px;" /></a>
 

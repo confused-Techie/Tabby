@@ -14,6 +14,7 @@ namespace Tabby_Docker.Models
         [Display(Name = "Date Added to Tabby")]
         [DataType(DataType.DateTime)]
         public DateTime DateAdded { get; set; }
+        [Display(Name = "Favicon URL")]
         public string FaviconLoc { get; set; }
 
     }
