@@ -26,7 +26,7 @@
 </p>
 Tabby is the Self-Hosted Free Bookmark Manager. A stark contrast to keeping a list of Bookmarks as just URL's and Titles, Tabby lets you provide just a URL via one of the Browser Extensions which Tabby then adds the Title according to the website, a description, and Site Name if the website supports it.
 
-Tabby is completly local, the only web requests ever made are once to the website you add when you add it. The extensions themselves are also completely local, only contacting your server once you choose to save a Bookmark.
+Tabby is completly local, only contacting the website once when added, and Google for the favicons. The extensions themselves are also completely local, only contacting your server once you choose to save a Bookmark.
 <img src="https://github.com/confused-Techie/Tabby/blob/master/gitImages/HomePage.PNG" alt="Tabby Home Page" />
 
 Tabby is still in development and if you encounter any issues feel free to open an issue here on Github, or if you have any feature requests feel free to submit those as well.
