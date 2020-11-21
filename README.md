@@ -40,7 +40,7 @@ Tabby is still in development and if you encounter any issues feel free to open 
 
 <strong>Published Versions</strong><br />
 
-Chrome Web Store: Version 1.0 Here!
+Chrome Web Store: Version 1.1 Here!
 
 <a href="https://chrome.google.com/webstore/detail/tabby-chrome-extension/ifjdlkpicmjmojpfnnegehnkblbjhnad?hl=en"><img src="https://github.com/confused-Techie/Tabby/blob/master/gitImages/chrome-addon.png" alt="Get Chrome Web Store Button" width=20% /></a>
 
